@@ -1,0 +1,24 @@
+var mysql = require('mysql2');
+var util = require('util');
+
+var pool  = mysql.createPool({
+    connectionLimit : 10,
+    host            : process.env.MYSQL_HOST,
+    port            : process.env.MYSQL_PORT,
+    user            : process.env.MYSQL_USER,
+    password        : process.env.MYSQL_PASSWORD,
+    database        : process.env.MYSQL_DB_NAME,
+  });
+   
+  pool.query = util.promisify(pool.query);
+
+  pool.getConnection((error,connection) =>{
+    if(error){
+        console.error('Error de conexion, este fue: ', error)
+    }else{
+        console.log('conexion a BD exitosa');
+        connection.release();
+    }
+});
+
+  module.exports = pool;

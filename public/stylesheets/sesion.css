@@ -1,0 +1,20 @@
+body{
+    background-color: #ccc;
+}
+
+.contenedorPpal{
+    padding-top: 15vh;
+    min-height: calc(100vh - 30px);
+    margin-bottom: 30px;
+}
+
+.tituloSesion,
+.sesionAbierta,
+.sesionCerrada
+{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    color:black;
+}

@@ -1,0 +1,730 @@
+<link rel="stylesheet" href="/stylesheets/fotografia.css" />
+
+<!--Seccion hero -->
+<section id="inicio" class="hero scrool-section">
+  <div class="hero-principal container-fluid">
+    <div class="hero-grid">
+      <h1 class="nombre-fotografo">Analía Leyez</h1>
+      <p class="rubro">fotografía profesional</p>
+      <h2 class="slogan">Captamos momentos únicos y los hacemos eternos.</h2>
+    </div>
+  </div>
+</section>
+<!--Fin Seccion hero -->
+
+<!--Seccion portfolio -->
+<section class="portfolio scrool-section">
+  <div class="contenedor-portfolio">
+    <h1 class="portfolioTituloGrilla text-center">Portfolio</h1>
+    <p class="servicios bodas my-0"><a href="/bodas">Bodas</a></p>
+    <p class="servicios quince my-0"><a href="/quince">15 años</a></p>
+    <p class="servicios modelaje my-0"><a href="/modelaje">Modelaje</a></p>
+    <p class="servicios paisaje my-0"><a href="/paisajes">Paisajes</a></p>
+    <div id="filmaciones" class="servicios filmaciones my-0">
+      <video autoplay loop muted>
+        <source src="/images/filmaciones.mp4" type="video/mp4" />
+      </video>
+      <p class="enlaceFilmaciones"><u>Filmaciones</u></p>
+    </div>
+  </div>
+</section><!--Fin Seccion portfolio -->
+
+<section>
+  <!-- seccion novedades -->
+    <div id="novedades" class="scroll-section col-md-5 offset-sm-1 offset-md-2">
+      <h2>Últimos trabajos</h2>
+      <ul class="lista-novedades">
+        {{#each novedades}}
+        <li class="lista-novedades">
+          <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#novedadesModal{{id}}">
+            <img src={{imagen}}>{{titulo}}</a>
+        </li>
+        {{/each}}
+      </ul>
+    </div><!-- fin de novedades -->
+</section>
+
+  <!-- novedades modal -->
+  {{#each novedades}}
+  <div class="modal fade" id="novedadesModal{{id}}" tabindex="-1" aria-labelledby="novedadesModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title fs-5" id="novedadesModalLabel">{{titulo}}</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h3>{{subtitulo}}</h3>
+          <div id="carouselExample{{id}}" class="carousel slide">
+  <div class="carousel-inner carousel-novedades" >
+    {{#if imagen}}
+    <div class="carousel-item active">
+      <img src={{imagen}} class="d-block w-100">
+    </div>
+    {{/if}}
+    {{#if imagen1}}
+    <div class="carousel-item">
+      <img src={{imagen1}} class="d-block w-100">
+    </div>
+    {{/if}}
+    {{#if imagen2}}
+    <div class="carousel-item">
+      <img src={{imagen2}} class="d-block w-100">
+    </div>
+    {{/if}}
+    {{#if imagen3}}
+        <div class="carousel-item">
+      <img src={{imagen3}} class="d-block w-100">
+    </div>
+    {{/if}}
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample{{id}}" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample{{id}}" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+        </div>
+      </div>
+    </div>
+  </div> 
+  {{/each}}
+  <!-- Fin de Modal novedades-->
+
+<section>
+  <!--preguntas frecuentes, carrusel de testimonios y aside-->
+  <div class="row mx-0">
+    <!-- Preguntas frecuentes -->
+    <div class="preguntas scrool-section col col-sm-12 col-md-6 col-lg-4">
+      <div class="accordion accordion-flush" id="acordionPreguntasFrecuentes">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseOne"
+              aria-expanded="false"
+              aria-controls="flush-collapseOne"
+            >
+              ¿Cuánto demoran en entregar el trabajo?
+            </button>
+          </h2>
+          <div
+            id="flush-collapseOne"
+            class="accordion-collapse collapse"
+            aria-labelledby="flush-headingOne"
+            data-bs-parent="#acordionPreguntasFrecuentes"
+          >
+            <div class="accordion-body">En nuestro equipo de fotografía
+              profesional, entendemos lo importante que es para nuestros
+              clientes recibir su trabajo en el menor tiempo posible. Nos
+              enorgullece ofrecer un servicio eficiente y ágil, sin comprometer
+              la calidad de nuestras imágenes.<br />
+              Nuestro tiempo de entrega varía según el tipo de proyecto y la
+              cantidad de fotografías requeridas. Para sesiones fotográficas
+              individuales, como retratos o sesiones personales, nuestro plazo
+              de entrega promedio es de aproximadamente una semana. Esto nos
+              permite realizar una cuidadosa selección y edición de las mejores
+              imágenes, garantizando resultados excepcionales.<br />
+              En el caso de proyectos más grandes, como eventos corporativos,
+              bodas o sesiones de moda, el tiempo de entrega puede extenderse
+              ligeramente debido al volumen de trabajo involucrado. Sin embargo,
+              nos comprometemos a entregar el trabajo finalizado en un plazo
+              máximo de dos semanas, manteniendo siempre una comunicación
+              abierta y transparente con nuestros clientes para informarles
+              sobre el progreso del proceso.<br />
+              Entendemos que la puntualidad es crucial, y nos esforzamos por
+              cumplir con los plazos acordados. Nuestro equipo de expertos
+              fotógrafos y editores trabaja diligentemente para capturar y
+              perfeccionar cada imagen, asegurando que cada proyecto se entregue
+              con el más alto nivel de calidad y satisfacción.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingTwo">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseTwo"
+              aria-expanded="false"
+              aria-controls="flush-collapseTwo"
+            >
+              ¿Con cuánto tiempo debo reservar?
+            </button>
+          </h2>
+          <div
+            id="flush-collapseTwo"
+            class="accordion-collapse collapse"
+            aria-labelledby="flush-headingTwo"
+            data-bs-parent="#acordionPreguntasFrecuentes"
+          >
+            <div class="accordion-body">Te recomendamos reservar con la mayor
+              anticipación posible para asegurar disponibilidad en nuestra
+              agenda. Dado que nuestro equipo de fotografía profesional se
+              encuentra altamente solicitado, es aconsejable reservar al menos
+              con dos semanas de antelación. Sin embargo, si necesitas una
+              sesión fotográfica en una fecha específica o para eventos
+              especiales, te sugerimos reservar con aún más tiempo para
+              garantizar nuestra disponibilidad y poder brindarte el mejor
+              servicio posible. ¡Esperamos capturar momentos inolvidables
+              contigo!</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingThree">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseThree"
+              aria-expanded="false"
+              aria-controls="flush-collapseThree"
+            >
+              ¿Cómo es el plan de pago del servicio?
+            </button>
+          </h2>
+          <div
+            id="flush-collapseThree"
+            class="accordion-collapse collapse"
+            aria-labelledby="flush-headingThree"
+            data-bs-parent="#acordionPreguntasFrecuentes"
+          >
+            <div class="accordion-body">El plan de pago de nuestro servicio es
+              flexible y se adapta a las necesidades de nuestros clientes.
+              Ofrecemos diferentes opciones de pago para mayor comodidad. Puedes
+              pagar el total del servicio de fotografía de manera anticipada o
+              dividirlo en pagos parciales. También aceptamos diferentes métodos
+              de pago, como tarjetas de crédito, transferencias bancarias o
+              pagos en efectivo. Nuestro objetivo es brindarte opciones
+              convenientes y accesibles para que puedas disfrutar de nuestros
+              servicios de fotografía profesional sin preocupaciones.</div>
+          </div>
+        </div>
+      </div>
+    </div><!-- fin Preguntas frecuentes -->
+
+    <!-- Carrusel de testimonios -->
+    <section
+      id="testimonios"
+      class="testimonios scrool-section col col-sm-12 col-md-6 col-lg-4"
+    >
+      <h1 class="text-center">Testimonios</h1>
+      <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container">
+              <p class="testimonio-texto">Excelente profesional y muy cordial.
+                Parte de su trabajo se puede ver en mi foto de perfil.
+                Identificó lo que quería y quedé más que conforme con el
+                resultado. Nunca había quedado conforme con las fotos de
+                retrato, sea por la expresión, el balance de color, etc. Sin
+                dudas lo recomiendo!</p>
+              <p class="testimonio-nombre d-inline">Leandro Merlo
+                <img
+                  src="/images/testimonio1.jpg"
+                  class="testimonio-imagen d-inline rounded-circle"
+                  alt="foto testimonio 1"
+                />
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container">
+              <p class="testimonio-texto">Excelente servicio! Los volveré a
+                contratar en cuanto tenga oportunidad, hermosa la fiesta
+                retratada tal cual la vivimos con alegría y felicidad, Gracias
+                genios!!!</p>
+              <p class="testimonio-nombre d-inline">Isabel Massia
+                <img
+                  src="/images/testimonio2.jpg"
+                  class="testimonio-imagen d-inline rounded-circle"
+                  alt="foto testimonio 2"
+                />
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container">
+              <p class="testimonio-texto">La verdad excelente todo, calidad,
+                excelencia, buena onda uno se siente muy a gusto, la fiesta de
+                mi hija salio super y vos le diste la confianza para que ella se
+                sienta terriblemente cómoda, y esta Feliz con las fotos. Muchas
+                Gracias por todo y mos vemos en la próxima fiesta obviamente.</p>
+              <p class="testimonio-nombre d-inline">Adrián Otamendi
+                <img
+                  src="/images/testimonio3.jpg"
+                  class="testimonio-imagen d-inline rounded-circle"
+                  alt="foto testimonio 3"
+                />
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container">
+              <p class="testimonio-texto">Súper recomendable. Estuvieron en
+                todos los detalles, me entregaron súper rápido las fotos de mi
+                casamiento. Superaron mis expectativas!</p>
+              <p class="testimonio-nombre d-inline">Constanza Goñi
+                <img
+                  src="/images/testimonio4.jpeg"
+                  class="testimonio-imagen d-inline rounded-circle"
+                  alt="foto testimonio 4"
+                />
+              </p>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section><!-- Fin Carrusel de testimonios -->
+
+    <!-- Aside-->
+    <aside id="aside" class="aside scrool-section col col-md-12 col-lg-4">
+      <h2 class="text-center">También te sugerimos...</h2>
+      <ul class="lista-aside">
+        <li>
+          <a
+            href="#"
+            data-bs-toggle="modal"
+            data-bs-target="#modalLoQueSeViene"
+          >
+            Lo que se viene en el rubro de la fotografía
+          </a>
+        </li>
+        <li class="lista-aside">
+          <a
+            href="#"
+            data-bs-toggle="modal"
+            data-bs-target="#modalNuevosRubros"
+          >
+            Seguimos creciendo! ahora tambíen cubrimos estos rubros...
+          </a>
+        </li>
+        <li>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#modalTendencias">
+            Tendencias
+          </a>
+        </li>
+        <li>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#modalNotas">
+            Notas
+          </a>
+        </li>
+        <li>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#modalTips">
+            Tips para una sesión de fotos exitosa
+          </a>
+        </li>
+      </ul>
+    </aside><!-- Fin de aside -->
+
+  </div>
+  <!--fin seccion preguntas frecuentes, testimonios y aside-->
+</section>
+
+<!-- seccion contacto -->
+<section>
+  <div id="contacto" class="scrool-section container-fluid">
+    <div clas="col">
+      <h1 class="text-center">Contacto</h1>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-4 offset-lg-2">
+        <h2 class="text-center">Envianos un mensaje</h2>
+        <form class="row g-1" action="/" method="post">
+          <div class="col-5">
+            <input
+              type="text"
+              class="form-control"
+              id="inputNombre"
+              placeholder="Nombre"
+              required
+              name="nombre"
+            />
+          </div>
+          <div class="col-7">
+            <input
+              type="text"
+              class="form-control"
+              id="inputAsunto"
+              placeholder="Asunto"
+              required
+              name="asunto"
+            />
+          </div>
+          <div class="col-12">
+            <label for="inputEmail" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="inputEmail"
+              placeholder="ejemplo@email.com"
+              required
+              name="email"
+            />
+          </div>
+          <div class="col-12">
+            <label for="inputMensaje" class="form-label">Mensaje</label>
+            <textarea
+              class="form-control"
+              id="inputMensaje"
+              rows="3"
+              placeholder="Hola! me gustaría consultar por..."
+              required
+              name="mensaje"
+            ></textarea>
+          </div>
+          <div class="col-12 my-3">
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </div>
+          <span class="rtaEnvio">
+            {{message}}
+          </span>
+          {{#if message}}
+            <script>alert("{{message}}")</script>
+          {{/if}}
+        </form>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4 offset-lg-1">
+        <h2 class="text-center">Vení a conocer nuestro estudio</h2>
+        <div class="mapa">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.011300061504!2d-58.413183749480865!3d-34.60387576491708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca8c87fde6e1%3A0x2c6d4110fbf70ca4!2sAv.%20Corrientes%203247%2C%20C1193%20CABA%2C%20Argentina!5e0!3m2!1ses-419!2sca!4v1679687042043!5m2!1ses-419!2sca"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subContacto row container-fluid">
+    <div class="col">
+      <h4 class="medios-contacto d-flex align-items-center">MAIL</h4>
+      <ul class="">
+        <li class="flex">
+          <div class="iconos-redes-sociales d-flex align-items-center">
+            <a href="mailto:example@email.com" class=""><i
+                class="bi bi-at"
+              ></i></a>example@email.com
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="col">
+      <h4 class="medios-contacto">Telefonos</h4>
+      <ul class="">
+        <li class="flex">
+          <div class="iconos-redes-sociales d-flex align-items-center">
+            <a><i class="bi bi-telephone"></i></a>
+            011 5555 5555 / 9999
+          </div>
+        </li>
+        <li class="flex">
+          <div class="iconos-redes-sociales d-flex align-items-center">
+            <a href="https://api.whatsapp.com/send?phone=9115555555">
+              <i class="bi bi-whatsapp"></i>
+            </a>
+            WhatsApp
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div id="redes-sociales" class="col">
+      <h4 class="medios-contacto scrool-section">Redes sociales</h4>
+      <ul class="">
+        <li class="flex">
+          <div class="iconos-redes-sociales d-flex align-items-center">
+            <a href="https://www.instagram.com/" class="">
+              <i class="bi bi-instagram"></i>
+            </a>Instagram
+          </div>
+        </li>
+        <li class="flex">
+          <div class="iconos-redes-sociales d-flex align-items-center">
+            <a href="https://www.facebook.com/" class="">
+              <i class="bi bi-facebook"></i>
+            </a>Facebook
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="col">
+      <h4 class="medios-contacto">Direccion</h4>
+      <ul class="">
+        <li class="flex">
+          <div class="iconos-redes-sociales d-flex align-items-center">
+            <a
+              href="https://www.google.ar/maps/place/Av.+Corrientes+3247,+C1193+CABA,+Argentina/@-34.6038758,-58.4131837,17z/data=!3m1!4b1!4m6!3m5!1s0x95bcca8c87fde6e1:0x2c6d4110fbf70ca4!8m2!3d-34.6038802!4d-58.4109897!16s%2Fg%2F11cs887n0t"
+            >
+              <i class="bi bi-geo-alt"></i>
+            </a>
+            Av. Corrientes 3247. Primer piso, local 18.
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section><!-- fin seccion contacto -->
+
+<!-- MODAL loQueSeViene -->
+<div
+  class="modal fade"
+  id="modalLoQueSeViene"
+  tabindex="-1"
+  aria-labelledby="modalLabelLoQueSeViene"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="modalLabelLoQueSeViene">Lo que se
+          viene...</h2>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        En nuestro equipo de fotografía profesional, siempre buscamos innovar y
+        sorprenderte. Te adelantamos algunas cosas emocionantes que están por
+        venir:
+        <br />
+        <ul>
+          <li>
+            <b>1. </b>Sesiones fotográficas temáticas: Pronto ofreceremos
+            experiencias fotográficas únicas con estilos temáticos, desde lo
+            vintage hasta lo futurista.<br />
+          </li>
+          <li>
+            <b>2. </b>Colaboraciones con artistas locales: Estamos emocionados
+            por fusionar la fotografía con otras formas de arte en
+            colaboraciones especiales.<br />
+          </li>
+          <li>
+            <b>3. </b>Fotografía aérea: Próximamente, capturaremos imágenes
+            desde nuevas perspectivas con servicios de fotografía aérea
+            utilizando drones.<br />
+          </li>
+        </ul>
+        Sigue nuestras redes sociales y visita nuestra página web para conocer
+        más detalles sobre estos proyectos emocionantes. Descubre nuevas y
+        sorprendentes formas de ver el mundo a través de nuestra fotografía
+        profesional.
+      </div>
+    </div>
+  </div>
+</div>
+<!--FIN MODAL loQueSeViene-->
+
+<!-- MODAL NuevosRubros -->
+<div
+  class="modal fade"
+  id="modalNuevosRubros"
+  tabindex="-1"
+  aria-labelledby="modalLabelNuevosRubros"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-sm modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <ul class="lista-nuevos-rubros">
+          <li>
+            <h3>Retratos</h3>
+          </li>
+          <li>
+            <h3>Recitales</h3>
+          </li>
+          <li>
+            <h3>Embarazos</h3>
+          </li>
+          <li>
+            <h3>Fotos publicitarias</h3>
+          </li>
+          <li>
+            <h3>Bautismos</h3>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+        >Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div><!-- FIN MODAL NuevosRubros -->
+
+<!-- MODAL Tendencias -->
+<div
+  class="modal fade"
+  id="modalTendencias"
+  tabindex="-1"
+  aria-labelledby="modalLabelTendencias"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content" style="width:100%;">
+      <div class="modal-body" style="width:100%;">
+        <h1>Explorando las Tendencias en Fotografía:</h1>
+        <h2>Capturando el Espíritu del Momento</h2>
+        <p>
+
+          La fotografía es un arte en constante evolución, y cada año nos
+          sorprende con nuevas tendencias y enfoques que capturan la esencia del
+          momento de una manera única. En este artículo, te presentamos algunas
+          de las tendencias más destacadas en el mundo de la fotografía actual:<br
+          />
+          <strong><u>Fotografía Lifestyle: </u></strong>En lugar de poses
+          rígidas y escenarios preparados, la fotografía lifestyle se enfoca en
+          capturar momentos espontáneos y auténticos. Se trata de crear imágenes
+          que reflejen la vida cotidiana y la personalidad de las personas,
+          transmitiendo emociones genuinas y verdaderas historias.<br />
+          <strong><u>Fotografía Minimalista: </u></strong>Menos es más en esta
+          tendencia que se centra en la simplicidad y la composición limpia. La
+          fotografía minimalista utiliza espacios vacíos, líneas limpias y
+          colores suaves para crear imágenes impactantes y elegantes. La
+          atención se centra en los detalles más simples, resaltando la belleza
+          en la simplicidad.<br />
+          <strong><u>Fotografía de Drones: </u></strong>El uso de drones ha
+          revolucionado la forma en que capturamos imágenes. La fotografía aérea
+          ofrece una perspectiva única, mostrando paisajes impresionantes,
+          vistas panorámicas y escenas arquitectónicas desde alturas asombrosas.
+          La creatividad se desata al explorar nuevos ángulos y composiciones
+          desde el cielo.<br />
+          <strong><u>Fotografía de Naturaleza y Paisajes: </u></strong>La
+          conexión con la naturaleza y la búsqueda de la belleza en los paisajes
+          continúan siendo una tendencia fuerte. La fotografía de naturaleza y
+          paisajes busca capturar la grandeza de la naturaleza, ya sea a través
+          de impresionantes paisajes montañosos, costas infinitas o fenómenos
+          naturales asombrosos.<br /><br />
+          Estas son solo algunas de las tendencias en fotografía que están
+          dejando huella en la actualidad. Como fotógrafos, nos inspiramos en
+          estas nuevas perspectivas y técnicas para crear imágenes cautivadoras
+          y únicas, que transmitan el espíritu del momento y despierten
+          emociones en quienes las observan.<br />
+
+          ¡Así que atrévete a explorar estas tendencias y deja que tu
+          creatividad se eleve a nuevas alturas! La fotografía está llena de
+          infinitas posibilidades y siempre hay algo emocionante esperando ser
+          capturado a través de tu lente.
+
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+        >Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div><!-- FIN MODAL Tendencias -->
+
+<!-- MODAL Notas -->
+<div
+  class="modal fade"
+  id="modalNotas"
+  tabindex="-1"
+  aria-labelledby="modalLabelNotas"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content" style="width:100%;">
+      <div class="modal-body" style="width:100%;">
+        <ul>
+          <li>
+            *
+            <a href="#">"Descubre la magia en cada detalle: La fotografía macro
+              revela un mundo asombroso en primer plano"</a>
+          </li><br />
+          <li>
+            *
+            <a href="#">"Capturando emociones reales: Fotografía documental que
+              cuenta historias auténticas"</a>
+          </li><br />
+          <li>*
+            <a href="#">"El poder de la luz: Cómo la iluminación creativa
+              transforma tus imágenes en obras de arte"</a>
+          </li><br />
+        </ul>
+
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+        >Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div><!-- FIN MODAL Notas -->
+
+<!-- MODAL Tips -->
+<div
+  class="modal fade"
+  id="modalTips"
+  tabindex="-1"
+  aria-labelledby="modalLabelTips"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content" style="width:100%;">
+      <div class="modal-body" style="width:100%;">
+        <ol>
+          <li>
+            <b>1.</b>
+            Planifica con anticipación: Establece fecha, lugar y estilo de la
+            sesión de fotos con anticipación.
+          </li><br />
+          <li>
+            <b>2.</b>
+            Sé tú mismo/a: Relájate, diviértete y muéstrate auténtico/a frente a
+            la cámara.
+          </li><br />
+          <li>
+            <b>3.</b>
+            Confía en tu fotógrafo: Permítele guiar la sesión y capturar tu
+            mejor versión
+          </li><br /><br />
+        </ol>
+        Estos tres tips te ayudarán a tener una sesión de fotos exitosa,
+        destacando tu personalidad y creando recuerdos memorables.
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+        >Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div><!-- FIN MODAL Tips -->
