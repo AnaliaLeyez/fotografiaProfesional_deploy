@@ -1,10 +1,10 @@
 <div class="container" style="margin:100px auto">
   <div class="row">
     <div class="col">
-      <p class="text-right">Bienvenid@ {{usuario}} !</p>
-      <p>Administrá las novedades desde aquí</p>
+      <h2 class="text-right">Bienvenid@ {{usuario}} !</h2>
+      <h3>Administrá las novedades desde aquí</h3>
       {{#if error}}
-      <p class="mensajeError">{{message}}</p>
+      <h4 class="mensajeError" style="color:red"> Por seguridad, esta version no admite cambios en la BD</h4>
       {{/if}}
       <p class="text-right">
         <a

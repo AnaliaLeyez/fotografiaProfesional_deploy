@@ -50,12 +50,15 @@ router.get('/', async function(req,res,next){
 // para eliminar una novedad:
 router.get('/eliminar/:id', async (req,res,next) =>{
     var novedades = await novedadesModel.getNovedades();
+    // const id= req.params.id;
     res.render('admin/novedades', {
         layout: 'admin/layout',
         usuario: req.session.nombre,
         novedades,
-        error: true, message: 'Por seguridad, esta version no admite cambios en la BD'})
-    //const id= req.params.id;
+        error: true, 
+        message: 'Por seguridad, esta version no admite cambios en la BD'
+    })
+    
     // let novedad= await novedadesModel.getNovedadesById(id);
     // if(novedad.img_principal_id){
     //     await(destroy(novedad.img_principal_id))
@@ -73,7 +76,7 @@ router.get('/eliminar/:id', async (req,res,next) =>{
     //     await(destroy(novedad.img_3_id))
     // }
     // await novedadesModel.deleteNovedadesById(id);
-    res.redirect('/admin/novedades')
+    // res.redirect('/admin/novedades')
 });
 
 // para que aparezca el form de agregar:
@@ -124,113 +127,111 @@ router.post('/agregar', async(req,res, next) => {
 
 // muestra el diseño de "modificar" con los datos de una sola novedad:
 router.get('/modificar/:id', async (req,res,next)=>{
+    var id= req.params.id;      
     var novedad= await novedadesModel.getNovedadesById(id);
     res.render('admin/modificar', {
         layout: 'admin/layout',
-        novedad,
-        error: true, message: 'Por seguridad, esta version no admite cambios en la BD'})
-    // var id= req.params.id;
-    // var novedad= await novedadesModel.getNovedadesById(id);
-    // res.render('admin/modificar', {
-    //     layout: 'admin/layout',
-    //     novedad
-    // })
+        novedad
+    })
 });
 
 // modifica la novedad:
 router.post('/modificar', async(req,res, next) => {
-    try{
-      let img_principal_id= req.body.img_principal_original;
-      let img_1_id= req.body.img_1_original;
-      let img_2_id= req.body.img_2_original;
-      let img_3_id= req.body.img_3_original;
-      let borrar_img_principal_vieja= false;
-      let borrar_img_1_vieja= false;
-      let borrar_img_2_vieja= false;
-      let borrar_img_3_vieja= false;
+    res.render('admin/modificar', {
+        layout: 'admin/layout',
+        error: true, message: 'Por seguridad, esta version no admite cambios en la BD'})
+    // try{
+    //   let img_principal_id= req.body.img_principal_original;
+    //   let img_1_id= req.body.img_1_original;
+    //   let img_2_id= req.body.img_2_original;
+    //   let img_3_id= req.body.img_3_original;
+    //   let borrar_img_principal_vieja= false;
+    //   let borrar_img_1_vieja= false;
+    //   let borrar_img_2_vieja= false;
+    //   let borrar_img_3_vieja= false;
 
 
-      if(req.body.img_principal_delete==="1"){
-          img_principal_id=null;
-          borrar_img_principal_vieja=true;
-      } else{
-          if(req.files && req.files.imagen_principal){
-              imagen_principal=req.files.imagen_principal;
-              img_principal_id=(await
-                  uploader(imagen_principal.tempFilePath)).public_id;
-                  borrar_img_principal_vieja=true;
-          }
-      }
-      if(borrar_img_principal_vieja && req.body.img_principal_original){
-          await(destroy(req.body.img_principal_original));
-      }
+    //   if(req.body.img_principal_delete==="1"){
+    //       img_principal_id=null;
+    //       borrar_img_principal_vieja=true;
+    //   } else{
+    //       if(req.files && req.files.imagen_principal){
+    //           imagen_principal=req.files.imagen_principal;
+    //           img_principal_id=(await
+    //               uploader(imagen_principal.tempFilePath)).public_id;
+    //               borrar_img_principal_vieja=true;
+    //       }
+    //   }
+    //   if(borrar_img_principal_vieja && req.body.img_principal_original){
+    //       await(destroy(req.body.img_principal_original));
+    //   }
 
 
-      if(req.body.img_1_delete==="1"){
-          img_1_id=null;
-          borrar_img_1_vieja=true;
-      } else{
-          if(req.files && req.files.imagen_1){
-              imagen_1=req.files.imagen_1;
-              img_1_id=(await
-                  uploader(imagen_1.tempFilePath)).public_id;
-                  borrar_img_1_vieja=true;
-          }
-      }
-      if(borrar_img_1_vieja && req.body.img_1_original){
-          await(destroy(req.body.img_1_original));
-      }
+    //   if(req.body.img_1_delete==="1"){
+    //       img_1_id=null;
+    //       borrar_img_1_vieja=true;
+    //   } else{
+    //       if(req.files && req.files.imagen_1){
+    //           imagen_1=req.files.imagen_1;
+    //           img_1_id=(await
+    //               uploader(imagen_1.tempFilePath)).public_id;
+    //               borrar_img_1_vieja=true;
+    //       }
+    //   }
+    //   if(borrar_img_1_vieja && req.body.img_1_original){
+    //       await(destroy(req.body.img_1_original));
+    //   }
 
 
-      if(req.body.img_2_delete==="1"){
-          img_2_id=null;
-          borrar_img_2_vieja=true;
-      } else{
-          if(req.files && req.files.imagen_2){
-              imagen_2=req.files.imagen_2;
-              img_2_id=(await
-                  uploader(imagen_2.tempFilePath)).public_id;
-                  borrar_img_2_vieja=true;
-          }
-      }
-      if(borrar_img_2_vieja && req.body.img_2_original){
-          await(destroy(req.body.img_2_original));
-      }
+    //   if(req.body.img_2_delete==="1"){
+    //       img_2_id=null;
+    //       borrar_img_2_vieja=true;
+    //   } else{
+    //       if(req.files && req.files.imagen_2){
+    //           imagen_2=req.files.imagen_2;
+    //           img_2_id=(await
+    //               uploader(imagen_2.tempFilePath)).public_id;
+    //               borrar_img_2_vieja=true;
+    //       }
+    //   }
+    //   if(borrar_img_2_vieja && req.body.img_2_original){
+    //       await(destroy(req.body.img_2_original));
+    //   }
 
 
-      if(req.body.img_3_delete==="1"){
-          img_3_id=null;
-          borrar_img_3_vieja=true;
-      } else{
-          if(req.files && req.files.imagen_3){
-              imagen_3=req.files.imagen_3;
-              img_3_id=(await
-                  uploader(imagen_3.tempFilePath)).public_id;
-                  borrar_img_3_vieja=true;
-          }
-      }
-      if(borrar_img_3_vieja && req.body.img_3_original){
-          await(destroy(req.body.img_3_original));
-      }
+    //   if(req.body.img_3_delete==="1"){
+    //       img_3_id=null;
+    //       borrar_img_3_vieja=true;
+    //   } else{
+    //       if(req.files && req.files.imagen_3){
+    //           imagen_3=req.files.imagen_3;
+    //           img_3_id=(await
+    //               uploader(imagen_3.tempFilePath)).public_id;
+    //               borrar_img_3_vieja=true;
+    //       }
+    //   }
+    //   if(borrar_img_3_vieja && req.body.img_3_original){
+    //       await(destroy(req.body.img_3_original));
+    //   }
 
-        let obj= {
-            titulo: req.body.titulo,
-            subtitulo: req.body.subtitulo,
-            img_principal_id,
-            img_1_id,
-            img_2_id,
-            img_3_id,
-        }
-        await novedadesModel.modificarNovedadById(obj,req.body.id);
-        res.redirect('/admin/novedades');
-    } 
-    catch(error){
-        console.log(error)
-        res.render('admin/modificar', {
-            layout: 'admin/layout',
-            error: true, message: 'No se modificó la novedad'
-        });
-    }
+    //     let obj= {
+    //         titulo: req.body.titulo,
+    //         subtitulo: req.body.subtitulo,
+    //         img_principal_id,
+    //         img_1_id,
+    //         img_2_id,
+    //         img_3_id,
+    //     }
+    //     await novedadesModel.modificarNovedadById(obj,req.body.id);
+    //     res.redirect('/admin/novedades');
+    // } 
+    // catch(error){
+    //     console.log(error)
+    //     res.render('admin/modificar', {
+    //         layout: 'admin/layout',
+    //         error: true, message: 'No se modificó la novedad'
+    //     });
+    // }
 });
 
 
