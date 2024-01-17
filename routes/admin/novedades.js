@@ -49,25 +49,30 @@ router.get('/', async function(req,res,next){
 
 // para eliminar una novedad:
 router.get('/eliminar/:id', async (req,res,next) =>{
-    const id= req.params.id;
+    var novedades = await novedadesModel.getNovedades();
+    res.render('admin/novedades', {
+        layout: 'admin/layout',
+        usuario: req.session.nombre,
+        novedades,
+        error: true, message: 'Por seguridad, esta version no admite cambios en la BD'})
+    //const id= req.params.id;
+    // let novedad= await novedadesModel.getNovedadesById(id);
+    // if(novedad.img_principal_id){
+    //     await(destroy(novedad.img_principal_id))
+    // }
 
-    let novedad= await novedadesModel.getNovedadesById(id);
-    if(novedad.img_principal_id){
-        await(destroy(novedad.img_principal_id))
-    }
+    // if(novedad.img_1_id){
+    //     await(destroy(novedad.img_1_id))
+    // }
 
-    if(novedad.img_1_id){
-        await(destroy(novedad.img_1_id))
-    }
+    // if(novedad.img_2_id){
+    //     await(destroy(novedad.img_2_id))
+    // }
 
-    if(novedad.img_2_id){
-        await(destroy(novedad.img_2_id))
-    }
-
-    if(novedad.img_3_id){
-        await(destroy(novedad.img_3_id))
-    }
-    await novedadesModel.deleteNovedadesById(id);
+    // if(novedad.img_3_id){
+    //     await(destroy(novedad.img_3_id))
+    // }
+    // await novedadesModel.deleteNovedadesById(id);
     res.redirect('/admin/novedades')
 });
 
@@ -80,48 +85,56 @@ router.get('/agregar', (req,res,next)=>{
 
 // agrega > post > insert:
 router.post('/agregar', async(req,res, next) => {
-    try{
-        var img_principal_id= '';
-        var img_1_id= '';
-        var img_2_id= '';
-        var img_3_id= '';
-        if(req.files && Object.keys(req.files).length>0){
-            imagen_principal= req.files.imagen_principal;
-            img_principal_id=(await uploader(imagen_principal.tempFilePath)).public_id;
-            imagen_1= req.files.imagen_1;
-            img_1_id=(await uploader(imagen_1.tempFilePath)).public_id;
-            imagen_2= req.files.imagen_2;
-            img_2_id=(await uploader(imagen_2.tempFilePath)).public_id;
-            imagen_3= req.files.imagen_3;
-            img_3_id=(await uploader(imagen_3.tempFilePath)).public_id;
-        }
+    res.render('admin/agregar', {
+        layout: 'admin/layout',
+        error: true, message: 'Por seguridad, esta version no admite cambios en la BD'})
+    // try{
+    //     var img_principal_id= '';
+    //     var img_1_id= '';
+    //     var img_2_id= '';
+    //     var img_3_id= '';
+    //     if(req.files && Object.keys(req.files).length>0){
+    //         imagen_principal= req.files.imagen_principal;
+    //         img_principal_id=(await uploader(imagen_principal.tempFilePath)).public_id;
+    //         imagen_1= req.files.imagen_1;
+    //         img_1_id=(await uploader(imagen_1.tempFilePath)).public_id;
+    //         imagen_2= req.files.imagen_2;
+    //         img_2_id=(await uploader(imagen_2.tempFilePath)).public_id;
+    //         imagen_3= req.files.imagen_3;
+    //         img_3_id=(await uploader(imagen_3.tempFilePath)).public_id;
+    //     }
 
-        if(req.body.titulo != "" && req.body.subtitulo != ""){
-            await novedadesModel.insertNovedades({...req.body, img_principal_id, img_1_id, img_2_id, img_3_id});
-            res.redirect('/admin/novedades')
-        } else{
-            res.render('admin/agregar', {
-                layout: 'admin/layout',
-                error: true, message: 'Todos los campos son requeridos'
-            })
-        }
-    } catch(error){
-        console.log(error)
-        res.render('admin/agregar', {
-            layout: 'admin/layout',
-            error: true, message: 'No se cargo la novedad'
-        });
-    }
+    //     if(req.body.titulo != "" && req.body.subtitulo != ""){
+    //         await novedadesModel.insertNovedades({...req.body, img_principal_id, img_1_id, img_2_id, img_3_id});
+    //         res.redirect('/admin/novedades')
+    //     } else{
+    //         res.render('admin/agregar', {
+    //             layout: 'admin/layout',
+    //             error: true, message: 'Todos los campos son requeridos'
+    //         })
+    //     }
+    // } catch(error){
+    //     console.log(error)
+    //     res.render('admin/agregar', {
+    //         layout: 'admin/layout',
+    //         error: true, message: 'No se cargo la novedad'
+    //     });
+    // }
 });
 
 // muestra el diseño de "modificar" con los datos de una sola novedad:
 router.get('/modificar/:id', async (req,res,next)=>{
-    var id= req.params.id;
     var novedad= await novedadesModel.getNovedadesById(id);
     res.render('admin/modificar', {
         layout: 'admin/layout',
-        novedad
-    })
+        novedad,
+        error: true, message: 'Por seguridad, esta version no admite cambios en la BD'})
+    // var id= req.params.id;
+    // var novedad= await novedadesModel.getNovedadesById(id);
+    // res.render('admin/modificar', {
+    //     layout: 'admin/layout',
+    //     novedad
+    // })
 });
 
 // modifica la novedad:

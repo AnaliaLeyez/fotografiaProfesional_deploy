@@ -3,6 +3,9 @@
     <div class="col">
       <p class="text-right">Bienvenid@ {{usuario}} !</p>
       <p>Administrá las novedades desde aquí</p>
+      {{#if error}}
+      <p class="mensajeError">{{message}}</p>
+      {{/if}}
       <p class="text-right">
         <a
           href="/admin/login/logout"
