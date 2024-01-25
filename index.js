@@ -31,6 +31,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.resolve(__dirname, './public')));
 
+app.use((req, res, next) => {
+  // Deshabilitar la memoria caché
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+  next();
+});
+
 app.use(session({
   secret: 'paxmaerzitreoqwn857v',
   resave: false,
